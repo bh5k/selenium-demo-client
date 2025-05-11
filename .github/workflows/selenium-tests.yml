@@ -1,0 +1,36 @@
+name: Run Selenium Tests
+
+on:
+  push:
+    branches: [ ci-cd-pipeline-setup ]
+  pull_request:
+    branches: [ ci-cd-pipeline-setup ]
+
+jobs:
+  selenium-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Selenium tests
+      run: |
+        python scripts/dropdown_script.py
+
+    - name: Upload screenshots on failure
+      if: failure()
+      uses: actions/upload-artifact@v4
+      with:
+        name: failure-screenshots
+        path: screenshots/
