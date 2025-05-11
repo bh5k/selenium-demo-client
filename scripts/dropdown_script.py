@@ -1,15 +1,11 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import time
 
+from utils.driver_setup import create_driver
+
 # Setup the driver
-options = webdriver.ChromeOptions()
-options.add_argument("--log-level=3")  # Suppress console warnings (INFO, WARNING, ERROR)
-options.add_argument("--headless")  # 👈 run headless in CI
-options.add_argument("--no-sandbox")  # 👈 prevent sandbox issues in containers
-options.add_argument("--disable-dev-shm-usage")  # 👈 prevent shared memory issues
-driver = webdriver.Chrome(options=options)
+driver = create_driver()
 
 try:
     # 1. Open the index page
