@@ -7,6 +7,9 @@ import time
 
 options = webdriver.ChromeOptions()
 options.add_argument("--log-level=3")  # Suppress console warnings (INFO, WARNING, ERROR)
+options.add_argument("--headless")  # 👈 run headless in CI
+options.add_argument("--no-sandbox")  # 👈 prevent sandbox issues in containers
+options.add_argument("--disable-dev-shm-usage")  # 👈 prevent shared memory issues
 driver = webdriver.Chrome(options=options)
 
 try:

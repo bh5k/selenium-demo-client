@@ -22,13 +22,17 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Create screenshots directory
+      run: mkdir -p screenshots
+
     - name: Run Selenium tests
       run: |
         python scripts/dropdown_script.py
 
-    - name: Upload screenshots on failure
-      if: failure()
+    - name: Upload screenshots (if any)
+      if: always()  # run this step even if tests pass or fail
       uses: actions/upload-artifact@v4
       with:
-        name: failure-screenshots
+        name: selenium-screenshots
         path: screenshots/
+        if-no-files-found: ignore
