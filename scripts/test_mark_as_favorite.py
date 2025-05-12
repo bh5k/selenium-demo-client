@@ -2,10 +2,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.alert import Alert
 import time
 
-from utils.driver_setup import create_driver
+from utils.driver_setup import DriverManager
 
 # Setup the driver
-driver = create_driver()
+driver = DriverManager.get_driver()
 
 try:
     # Navigate to your pie shop index.html

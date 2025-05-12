@@ -5,7 +5,7 @@ import time
 from utils.driver_setup import DriverManager
 
 # Setup the driver
-driver = create_driver()
+driver = DriverManager.get_driver()
 
 try:
     # 1. Open the index page
