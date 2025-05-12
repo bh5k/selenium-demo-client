@@ -2,7 +2,10 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
-driver = webdriver.Chrome()
+# Set up Chrome WebDriver
+options = webdriver.ChromeOptions()
+options.add_argument("--log-level=3")  # Suppress console warnings (INFO, WARNING, ERROR)
+driver = webdriver.Chrome(options=options)
 
 try:
     driver.get("https://selenium.completeprogrammer.com")

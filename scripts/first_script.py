@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
+# Set up Chrome WebDriver
 options = webdriver.ChromeOptions()
 options.add_argument("--log-level=3")  # Suppress console warnings (INFO, WARNING, ERROR)
 driver = webdriver.Chrome(options=options)
