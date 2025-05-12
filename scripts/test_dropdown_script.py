@@ -2,11 +2,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import time
 
-from utils.driver_setup import DriverManager
+from utils.driver_setup import get_driver
 
 @pytest.fixture
 def driver():
-    driver = DriverManager.get_driver()
+    driver = get_driver()
     yield driver
     driver.quit()
 
