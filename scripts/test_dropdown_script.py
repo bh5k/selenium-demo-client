@@ -5,6 +5,7 @@ import time
 
 from utils.driver_setup import get_driver
 
+#parallel tests
 @pytest.fixture
 def driver():
     driver = get_driver()

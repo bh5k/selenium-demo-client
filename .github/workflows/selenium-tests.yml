@@ -28,7 +28,7 @@ jobs:
       run: mkdir -p screenshots
 
     - name: Run Selenium tests
-      run: |
+      run: | #parallel tests
         export PYTHONPATH=./scripts
         pytest -n auto scripts/
 
