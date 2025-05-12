@@ -29,8 +29,8 @@ jobs:
 
     - name: Run Selenium tests
       run: |
-      export PYTHONPATH=./scripts
-      pytest -n auto scripts/
+        export PYTHONPATH=./scripts
+        pytest -n auto scripts/
 
     - name: Upload screenshots (if any)
       if: always()  # run this step even if tests pass or fail
