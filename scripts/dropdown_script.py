@@ -31,7 +31,7 @@ try:
     cart_items_div = driver.find_element(By.ID, "cartItems")
     assert "Classic Apple Pie" in cart_items_div.text, "Pie not found in cart!"
 
-    print("Test passed: Classic Apple Pie with selected size added to cart successfully.")
+    print("Test passed: Classic Apple Pie with selected size and it should be Large added to cart successfully.")
 
 finally:
     # Optional: wait before closing to see result
