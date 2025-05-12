@@ -2,10 +2,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import time
 
-from utils.driver_setup import create_driver
+from utils.driver_setup import DriverManager
 
 # Setup the driver
-driver = create_driver()
+driver = DriverManager.get_driver()
 
 try:
     # 1. Open the index page

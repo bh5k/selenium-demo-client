@@ -1,10 +1,8 @@
-import pytest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import time
 
 from utils.driver_setup import DriverManager
-
 
 @pytest.fixture
 def driver():
@@ -22,7 +20,9 @@ def test_add_classic_apple_pie_to_cart(driver):
     size_dropdown.select_by_visible_text("Large")
 
     # 3. Click the 'Add to cart' link for Classic Apple Pie
+    #add_to_cart_link = driver.find_element(By.XPATH, "//a[contains(text(), '+ Add to cart') and contains(@onclick, 'id: 1')]")
     add_to_cart_link = driver.find_element(By.CSS_SELECTOR, "a.add-to-cart-link[data-id='1']")
+
     add_to_cart_link.click()
 
     # 4. Wait briefly for localStorage update
@@ -35,4 +35,5 @@ def test_add_classic_apple_pie_to_cart(driver):
     cart_items_div = driver.find_element(By.ID, "cartItems")
     assert "Classic Apple Pie" in cart_items_div.text, "Pie not found in cart!"
 
-    print("✅ Test passed: Classic Apple Pie with selected size added to cart.")
+    print("Test passed: Classic Apple Pie with selected size and it should be Large added to cart successfully.")
+
